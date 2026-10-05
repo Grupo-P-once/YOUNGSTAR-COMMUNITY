@@ -49,3 +49,13 @@ tags: [youngstar, bitacora, bugs]
 - Generado PDF sin precios: `docs/propuesta/Propuesta-Mantenimiento-Youngstar.pdf` (script `docs/propuesta/build.py`, ReportLab). Tono para cliente: sin críticas al proveedor anterior ni notas internas.
 - **Incidencia:** `reportlab` no estaba instalado (`ModuleNotFoundError`); se resolvió con `pip install reportlab`. Primera versión salió en 3 páginas con la última casi vacía; se compactó márgenes y tipografía a 2 páginas.
 - **Pendiente:** completar `[Nombre de la agencia]`, `[fecha]` y datos de contacto editando `build.py` y regenerando.
+
+## 2026-10-05 (noche) — PDF v2 con diseño de referencia
+- El usuario pidió replicar el diseño del PDF de ejemplo (portada con rombos, círculos numerados, tarjetas, columnas antes/después, línea de tiempo, banner verde) e incluir **problema → solución → beneficio**. Se reescribió `docs/propuesta/build.py` (ReportLab, plataforma propia; no se copió el logo ni el contenido del ejemplo). Resultado: 8 páginas, sin precios.
+- **Error 1: texto de portada con letras muy separadas y cortado.** *Por qué:* `setCharSpace` en un `textobject` persiste en el flujo del PDF y se aplicó también al título y subtítulo dibujados después. *Solución:* reponer `setCharSpace(0)` tras cada `textOut`.
+- **Error 2: "El reto" quedaba partido entre páginas 2 y 3.** *Por qué:* la cabecera y sus tarjetas no cabían juntas. *Solución:* salto de página antes de esa sección.
+- **Error 3: página casi vacía al final (desbordaba un párrafo).** *Por qué:* la sección "Qué es de quién" se partía entre páginas. *Solución:* moverla completa a la página final y reorganizar secciones.
+- **Error 4: cuadrícula de indicadores partida entre 2 páginas.** *Solución:* pasar de 2×2 a una fila de 4 tarjetas.
+- **Error 5: cifras largas partidas en 2 líneas** ("~2 de 100", "100 % vs 55 %"). *Solución:* reducir tamaño y acortar a "100 vs 55" con la unidad en la leyenda.
+- **Decisión de contenido:** las cifras (6 años, 127 atletas, ~2 de 100, 100 vs 55) se presentan como "mencionadas por el equipo", y los beneficios son cualitativos o medibles, sin prometer porcentajes inventados.
+- Nota: las fuentes son las estándar del PDF (Helvetica/Courier); el ejemplo usa otras, así que la tipografía no es idéntica.
