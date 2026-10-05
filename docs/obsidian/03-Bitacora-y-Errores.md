@@ -40,3 +40,7 @@ tags: [youngstar, bitacora, bugs]
 - **Qué pasó:** `curl` al enlace `s21.aconvert.com/...m4a` falló con `CONNECT tunnel failed, response 403`.
 - **Por qué:** la política de red del entorno cloud solo permite ciertos dominios; `s21.aconvert.com` no está en la lista permitida (no es un problema del enlace).
 - **Resolución:** no se eludió el proxy. Opciones: añadir `aconvert.com` en *Allowed domains* del entorno, o seguir con la transcripción. Además no hay `whisper` instalado (solo `ffmpeg`), así que habría que instalar un transcriptor.
+
+## 2026-10-05 (tarde)
+- El usuario aclaró que es un **tercero** que atendió la llamada y debe ofrecer servicios. Se redactó [[04-Propuesta-de-Servicios]] (borrador, sin precios).
+- **Corrección de criterio:** antes recomendé auditar "sin que quien vende el mantenimiento la haga"; en la propuesta se resolvió haciendo la auditoría un entregable independiente y pagado por separado.
