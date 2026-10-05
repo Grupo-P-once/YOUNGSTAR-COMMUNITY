@@ -9,9 +9,9 @@ from reportlab.platypus import (BaseDocTemplate, PageTemplate, Frame, Paragraph,
                                 TableStyle, Flowable, PageBreak, KeepTogether)
 from reportlab.pdfgen import canvas as rl_canvas
 
-AGENCIA = "[Nombre de la agencia]"
-FECHA = "[Ciudad] · Octubre 2026"
-CONTACTO = "[correo] · [teléfono / WhatsApp] · [sitio web]"
+AGENCIA = "OTLI"
+FECHA = "León, Guanajuato · Octubre 2026"
+CONTACTO = "otli.de.ia@gmail.com · WhatsApp +52 477 649 4046 · otli-ia.com"
 
 W_PAGE, H_PAGE = letter
 M = 1.6 * cm
@@ -144,7 +144,7 @@ def callout(text, bg=AMBER_BG, bar=AMBER):
     return Card([P(text, S("co", fontSize=9.4, leading=13.6))], bg=bg, border=None, bar=bar, pad=13, radius=4)
 
 def banner(text):
-    return Card([P(text, S("bn", fontSize=11.5, leading=16.5, textColor=colors.white, alignment=1))], bg=TEAL, border=None, pad=18, radius=7)
+    return Card([P(text, S("bn", fontSize=11.5, leading=16.5, textColor=colors.white, alignment=1))], bg=TEAL, border=None, pad=14, radius=7)
 
 def tbl(rows, widths, header=True):
     data = []
@@ -369,7 +369,7 @@ s += before_after("DE LA AGENCIA", "DE YOUNGSTAR", [
     ("Nuestro tiempo, con alcance definido", "El código y la plataforma que ya pagaron"),
     ("Confidencialidad sobre lo que veamos", "Todo exportable cuando quieran")])
 s += [Spacer(1, 8), P("La línea es simple: <b>nosotros aportamos el trabajo, Youngstar conserva todo lo suyo.</b> Contratar el servicio no nos da ningún derecho sobre la información, y se firma un acuerdo de confidencialidad antes de acceder a cualquier sistema.", body), Spacer(1, 8),
-      callout("<b>Datos de salud.</b> La información de los atletas incluye datos de salud, que la ley mexicana trata como datos personales sensibles. Recomendamos revisar con el área legal de Youngstar el aviso de privacidad y el consentimiento. <b>Este documento es un resumen, no el contrato.</b>"), Spacer(1, 16)]
+      callout("<b>Datos de salud.</b> La información de los atletas incluye datos de salud, que la ley mexicana trata como datos personales sensibles. Recomendamos revisar con el área legal de Youngstar el aviso de privacidad y el consentimiento. <b>Este documento es un resumen, no el contrato.</b>"), Spacer(1, 8)]
 
 s += [SectionHead(9, "Siguientes pasos"), Spacer(1, 6)]
 steps = [("Revisión de este documento", "Que el equipo confirme que refleja lo que de verdad necesita, y que no falte nada."),
@@ -386,9 +386,10 @@ class Step(Flowable):
         c.setFillColor(colors.white); c.setFont("Helvetica-Bold", 9.5); c.drawCentredString(10, s.h - 14.2, str(s.n))
         c.setFillColor(INK); c.setFont("Helvetica-Bold", 11.5); c.drawString(30, s.h - 15, s.t)
         s.p.drawOn(c, 30, s.h - 18 - s.p.height + 0)
-for i, (t, d) in enumerate(steps, 1): s.append(Step(i, t, d)); s.append(Spacer(1, 2))
-s += [Spacer(1, 14), banner("El sistema ya existe. Este documento no propone empezar de cero: propone <b>cuidarlo, ordenarlo y hacerlo crecer</b> sin que Youngstar dependa de nadie para que funcione."),
-      Spacer(1, 16), P("<b>%s</b>" % AGENCIA, S("ag", fontName="Helvetica-Bold", fontSize=17, leading=22, textColor=GREEN, alignment=1)),
+for i, (t, d) in enumerate(steps, 1): s.append(Step(i, t, d))
+s += [Spacer(1, 10), banner("El sistema ya existe. Este documento no propone empezar de cero: propone <b>cuidarlo, ordenarlo y hacerlo crecer</b> sin que Youngstar dependa de nadie para que funcione."),
+      Spacer(1, 10), P("<b>%s</b>" % AGENCIA, S("ag", fontName="Helvetica-Bold", fontSize=17, leading=22, textColor=GREEN, alignment=1)),
+      P("Automatización con IA para negocios · León, Guanajuato", S("tg", fontSize=9.5, leading=14, textColor=TXT, alignment=1)),
       P(CONTACTO, S("ct", fontName="Courier", fontSize=8.8, leading=13, textColor=MUTED, alignment=1))]
 
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Propuesta-Mantenimiento-Youngstar.pdf")

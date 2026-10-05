@@ -59,3 +59,7 @@ tags: [youngstar, bitacora, bugs]
 - **Error 5: cifras largas partidas en 2 líneas** ("~2 de 100", "100 % vs 55 %"). *Solución:* reducir tamaño y acortar a "100 vs 55" con la unidad en la leyenda.
 - **Decisión de contenido:** las cifras (6 años, 127 atletas, ~2 de 100, 100 vs 55) se presentan como "mencionadas por el equipo", y los beneficios son cualitativos o medibles, sin prometer porcentajes inventados.
 - Nota: las fuentes son las estándar del PDF (Helvetica/Courier); el ejemplo usa otras, así que la tipografía no es idéntica.
+- Se pusieron los datos de **OTLI** en el PDF (nombre, León Guanajuato, correo, WhatsApp, sitio), tomados del PDF de ejemplo que envió el usuario. Ya no quedan marcadores `[ ]`.
+- **Error:** mi primer script de reemplazo usó `re.sub` con `\u...` en el texto de reemplazo → `re.error: bad escape \u`. No cambió el archivo y el PDF se regeneró igual que antes (lo detecté porque seguían los corchetes). *Solución:* reemplazos con `str.replace` y comprobación con `assert`.
+- **Efecto secundario:** la línea extra del lema hizo que la línea de contacto pasara a una página 9 casi vacía. *Solución:* reducir espaciados en la última página; vuelve a 8 páginas.
+- No se incluyó el logo de OTLI (solo texto); está disponible en el PDF de ejemplo si se quiere extraer.
