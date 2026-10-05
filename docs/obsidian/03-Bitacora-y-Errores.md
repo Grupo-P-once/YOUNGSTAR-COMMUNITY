@@ -35,3 +35,8 @@ tags: [youngstar, bitacora, bugs]
 - **Qué pasó:** `create_pull_request` con base `main` falló: `PullRequest.base (invalid)`.
 - **Por qué:** el repositorio remoto solo tiene la rama `claude/blissful-lovelace-7nnuyz`; no existe `main` (repo recién creado, sin commits previos), así que no hay rama base.
 - **Resolución:** pendiente. Opciones: que el dueño cree `main` (o fije una rama por defecto) y luego se abre el PR. No se creó `main` sin autorización.
+
+### 7. No se pudo descargar el audio desde aconvert.com
+- **Qué pasó:** `curl` al enlace `s21.aconvert.com/...m4a` falló con `CONNECT tunnel failed, response 403`.
+- **Por qué:** la política de red del entorno cloud solo permite ciertos dominios; `s21.aconvert.com` no está en la lista permitida (no es un problema del enlace).
+- **Resolución:** no se eludió el proxy. Opciones: añadir `aconvert.com` en *Allowed domains* del entorno, o seguir con la transcripción. Además no hay `whisper` instalado (solo `ffmpeg`), así que habría que instalar un transcriptor.
