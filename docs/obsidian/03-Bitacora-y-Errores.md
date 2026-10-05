@@ -44,3 +44,5 @@ tags: [youngstar, bitacora, bugs]
 ## 2026-10-05 (tarde)
 - El usuario aclaró que es un **tercero** que atendió la llamada y debe ofrecer servicios. Se redactó [[04-Propuesta-de-Servicios]] (borrador, sin precios).
 - **Corrección de criterio:** antes recomendé auditar "sin que quien vende el mantenimiento la haga"; en la propuesta se resolvió haciendo la auditoría un entregable independiente y pagado por separado.
+- El usuario confirmó que va **como agencia de mantenimiento** de un proyecto ya existente. [[04-Propuesta-de-Servicios]] reescrita (v2): auditoría de entrada, planes mensuales Básico/Estándar/Plus, mejoras por proyecto y transición con el proveedor anterior.
+- **Riesgo anotado:** no se puede prometer mantenimiento de un stack que aún no se ha visto; por eso el contrato arranca tras la Fase 0.
