@@ -30,3 +30,8 @@ tags: [youngstar, bitacora, bugs]
 
 ### 5. Foros / redes
 - Las búsquedas no devolvieron hilos de Reddit/foros útiles; no se inventó contenido.
+
+### 6. No se pudo abrir el PR
+- **Qué pasó:** `create_pull_request` con base `main` falló: `PullRequest.base (invalid)`.
+- **Por qué:** el repositorio remoto solo tiene la rama `claude/blissful-lovelace-7nnuyz`; no existe `main` (repo recién creado, sin commits previos), así que no hay rama base.
+- **Resolución:** pendiente. Opciones: que el dueño cree `main` (o fije una rama por defecto) y luego se abre el PR. No se creó `main` sin autorización.
