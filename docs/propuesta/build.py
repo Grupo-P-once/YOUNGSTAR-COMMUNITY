@@ -11,7 +11,7 @@ from reportlab.pdfgen import canvas as rl_canvas
 
 AGENCIA = "OTLI"
 FECHA = "León, Guanajuato · Octubre 2026"
-CONTACTO = "otli.de.ia@gmail.com · WhatsApp +52 477 649 4046 · otli-ia.com"
+CONTACTO = "otli.de.ia@gmail.com · Tel. +52 477 811 6501 · otli-ia.com"
 
 W_PAGE, H_PAGE = letter
 M = 1.6 * cm

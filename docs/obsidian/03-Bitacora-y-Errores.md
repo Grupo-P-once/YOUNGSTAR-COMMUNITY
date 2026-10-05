@@ -63,3 +63,4 @@ tags: [youngstar, bitacora, bugs]
 - **Error:** mi primer script de reemplazo usó `re.sub` con `\u...` en el texto de reemplazo → `re.error: bad escape \u`. No cambió el archivo y el PDF se regeneró igual que antes (lo detecté porque seguían los corchetes). *Solución:* reemplazos con `str.replace` y comprobación con `assert`.
 - **Efecto secundario:** la línea extra del lema hizo que la línea de contacto pasara a una página 9 casi vacía. *Solución:* reducir espaciados en la última página; vuelve a 8 páginas.
 - No se incluyó el logo de OTLI (solo texto); está disponible en el PDF de ejemplo si se quiere extraer.
+- El usuario pidió poner como teléfono **477 811 6501**. Se reemplazó el número de WhatsApp del ejemplo por `Tel. +52 477 811 6501` (se asumió lada +52 y formato 477 811 6501). No se etiquetó como WhatsApp porque no se confirmó.
